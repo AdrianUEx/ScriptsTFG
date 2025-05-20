@@ -27,6 +27,6 @@ También codifica la imagen solo una vez en lugar de hacerlo con cada iteración
 ## Scripts Azure
 * **send_message.py** : versión básica que venía con el azureiotsdk. Cuenta con múltiples bucles *for* separados para mandar distintas ráfagas de mensajes.
 
-* **send_message_v2_60s_127KB.py** : versión modificada del send_message.py básico. Se han eliminado los bucles for y se ha copiado el código desde basic_discovery.py. También se ha creado una variable con el connection_string necesario para poder conectarse al gateway. AL utilizar el mismo código que su homólogo de AWS, conforma una versión lista para su uso.
+* **send_message_v2_60s_127KB.py** : versión modificada del send_message.py básico. Se han eliminado los bucles for y se ha copiado el código desde basic_discovery.py. También se ha creado una variable con el connection_string necesario para poder conectarse al gateway. Al utilizar el mismo código que su homólogo de AWS, conforma una versión lista para su uso.
 
 * **send_message_v2_60s_255KB.py** : mismo código que la versión de 127KB. En esta versión el tamaño máximo de mensaje es el doble que con IoT Core, siendo el máximo permitido por IoT Hub.

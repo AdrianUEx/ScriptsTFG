@@ -8,7 +8,7 @@ Scripts usados a lo largo del TFG
 
 ## Scripts AWS
 * **basic_discovery.py** : el script básico que viene con awsiotsdk. Cuenta con un fallo del *print()* al final donde pide valores del puback, pero no existe. Dicho fallo, debido a la falta de mantenimiento, está corregido. Manda 10 mensajes string genéricos y termina.
-* **basic_discovery_v2.py** : cuenta con muchísimos comentarios nuevos. También cuenta con print() adicionales para organizar mejor la info por consola y mostrar otra info de utilidad para hacer debug. También cuenta con un método 'convertir_imagen_b64()' que no hace nada. 
+* **basic_discovery_v2.py** : cuenta con muchísimos comentarios nuevos. También cuenta con print() adicionales para organizar mejor la información por consola y mostrar otra información de utilidad para hacer debug. También cuenta con un método 'convertir_imagen_b64()' que no hace nada. 
 Por último, este script lanza 10 veces un mensaje 'test' codificado en base64 con éxito para probar la codificación y el envío.
 * **basic_discovery_v3.py** : esta mejora de la v2 incluye el nuevo método 'fragmentar_imagen_b64()' y el bucle *for* para lanzar los fragmentos. Se han optimizado los *print()*, y cuenta con algunas variables globales e imports nuevos. Manda los fragmentos con éxito una vez y cuenta el tiempo tardado.
 * **basic_discovery_v4.py** : esta mejora de la v3 es capaz de mandar los mensajes durante un periodo de tiempo de 60 seg. Manda cada imagen con un segundo de intervalo, y cuenta con pequeños reajustes para los mensajes por consola.
@@ -19,6 +19,9 @@ También codifica la imagen solo una vez en lugar de hacerlo con cada iteración
 * **basic_discovery_v6_60s.py** : Igual que la v5 en términos de rendimiento y consumo de recursos. Esta versión presenta un código mucho más limpio de comentarios para su posible reutilización y modificación en otros entornos.
 
 ## Scripts Azure
-* **send_message.py** : versión básica que venía con el azureiotsdk. Cuenta con múltiples bucles *for* separados para mandar distintas ráfagas de mensajes.
-* **send_message_v2_60s_127KB.py** : versión modificada del send_message.py básico. Se han eliminado los bucles for y se ha copiado el código desde basic_discovery.py. También se ha creado una variable con el connection_string necesario para poder conectarse al gateway. AL utilizar el mismo código que su homólogo de AWS, conforma una versión lista para su uso.
-* **send_message_v2_60s_255KB.py** : mismo código que la versión de 127KB. En esta versión el tamaño máximo de mensaje es el doble que con IoT Core, siendo el máximo permitido por IoT Hub.
+* **send_message.py** : versión básica incluida en azureiotsdk. Cuenta con múltiples bucles *for* separados para mandar distintas ráfagas de mensajes. 
+Se trata de un script simple que se conecta a un dispositivo, manda distintas ráfagas de mensajes para que el desarrollador aprenda su funcionamiento, y se desconecta.
+* **send_message_v2_60s_127KB.py** : versión modificada del _send_message.py_ básico. Se han eliminado los bucles _for_ y se ha copiado el código desde _basic_discovery.py_.
+También se ha creado una variable con el _connection_string_ necesario para poder conectarse al dispositivo gateway. 
+Al utilizar el mismo código que su homólogo de AWS, conforma una versión lista para su uso.
+* **send_message_v2_60s_255KB.py** : esta versión presenta el mismo código que la versión de 127KB. El tamaño máximo de mensaje es el doble que con IoT Core, siendo el máximo permitido por IoT Hub.

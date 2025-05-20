@@ -115,7 +115,7 @@ if cmdData.input_mode == 'both' or cmdData.input_mode == 'subscribe': # Si en el
         print('Publish received on topic {}'.format(topic))
         print('Payload: ',payload) # MODIFICADO POR MI PARA LEER MEJOR LA CONSOLA
         print('-------------------------------------------------------------------') # ESTA LINEA FUE AÑADIDA POR MÍ PARA LEER MÁS FÁCIL LA CONSOLA
-    subscribe_future, _ = mqtt_connection.subscribe(cmdData.input_topic, QoS.AT_MOST_ONCE, on_publish) # La operación .subscribe() devuelve un dato de tipo Future (si no me equivoco) por lo que el resultado de la suscripción está en la variable 'subscribe_future'. El otro valor que devuelve es ignorado con la convención de '_'
+    subscribe_future, _ = mqtt_connection.subscribe(cmdData.input_topic, QoS.AT_MOST_ONCE, on_publish) # La operación .subscribe() devuelve un dato de tipo Future por lo que el resultado de la suscripción está en la variable 'subscribe_future'. El otro valor que devuelve es ignorado con la convención de '_'
     subscribe_result = subscribe_future.result()
 
 # Método para convertir a base64
@@ -127,7 +127,7 @@ def convertir_imagen_b64():
     return imagen_b64
 
 loop_count = 0
-while loop_count < cmdData.input_max_pub_ops: # Solo se realizan 10 publicaciones porque así está establecido en la librería utilizada al principio del script para inicializar la variable
+while loop_count < cmdData.input_max_pub_ops: # Solo se realizan 10 publicaciones porque así está establecido en la librería 'CommandLineUtils'
     if cmdData.input_mode == 'both' or cmdData.input_mode == 'publish':
         
         message = {} # Declara un diccionario, que es una estructura que almacena pares clave-valor
@@ -142,7 +142,7 @@ while loop_count < cmdData.input_max_pub_ops: # Solo se realizan 10 publicacione
         
         print('Contenido de cmdData: ',cmdData) # Puesto por mí para ver lo que tiene dentro 'cmdData'
         # print(f"DEBUG: Contenido de publish_completion_data = {publish_completion_data}") # ESTA LINEA FUE AÑADIDA POR MI PARA SABER QUÉ TIENE DENTRO PUBLISH_COMPLETION_DATA
-        # print('Published topic {}: {} (puback reason: {})\n'.format(cmdData.input_topic, messageJson, repr(publish_completion_data.puback.reason_code))) # ESTA LINEA PETA QUE FLIPAS PORQUE AL PARECER LA VERSION DE AWS_IOT_DEVICE_SDK INSTALADA Y LA DE LA DOCUMENTACION NO COINCIDEN Y YA NO SE EMPLEA EL ATRIBUTO 'PUBACK' DENTRO DEL DICCIONARIO DE PUBLISH_COMPLETION_DATA. Por lo tanto, al lanzar el comando, falla. Es raro, y no he encontrado documentación al respecto.
+        # print('Published topic {}: {} (puback reason: {})\n'.format(cmdData.input_topic, messageJson, repr(publish_completion_data.puback.reason_code))) # ESTA LINEA DA ERROR PORQUE AL PARECER LA VERSION DE AWS_IOT_DEVICE_SDK INSTALADA Y LA DE LA DOCUMENTACION NO COINCIDEN Y YA NO SE EMPLEA EL ATRIBUTO 'PUBACK' DENTRO DEL DICCIONARIO DE PUBLISH_COMPLETION_DATA. Por lo tanto, al lanzar el comando, falla. Es raro, y no he encontrado documentación al respecto.
         print(f'Published topic {cmdData.input_topic}: {messageJson} (packet_id: {publish_completion_data["packet_id"]})')
         loop_count += 1
     time.sleep(1)

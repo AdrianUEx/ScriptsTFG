@@ -141,7 +141,7 @@ def fragmentar_imagen_b64(imagen_b64):
     
 loop_count = 0
 inicio = time.perf_counter()
-while loop_count < 1: # Solo se realizan 10 publicaciones porque así está establecido en la librería utilizada al principio del script para inicializar la variable
+while loop_count < 1: # Solo se realizan 10 publicaciones porque así está establecido en la librería 'CommandLineUtils'
     if cmdData.input_mode == 'both' or cmdData.input_mode == 'publish':
         
         message = {} # Declara un diccionario, que es una estructura que almacena pares clave-valor
@@ -152,7 +152,7 @@ while loop_count < 1: # Solo se realizan 10 publicaciones porque así está esta
             messageJson = json.dumps(message) # Convierte el diccionario 'message' en un JSON. Hace falta porque los datos esperados han de ser texto o cosas codificables en formato JSON.
             #               mqtt_connection.publish(topic, payload, qos=0)
             pub_future, _ = mqtt_connection.publish(cmdData.input_topic, messageJson, QoS.AT_LEAST_ONCE)
-            # publish_completion_data = pub_future.result() # Esto congela la ejecución si se lanza desde el bucle for, por algún motivo. Tal vez porque ahora el mensaje es masivamente mayor en tamaño y se queda indefinidamente esperando la respuesta (que se supone que debería llegar igualmente)
+            # publish_completion_data = pub_future.result() # Esto congela la ejecución si se lanza desde el bucle for, por algún motivo. Posiblemente porque ahora el mensaje es masivamente mayor en tamaño y se queda indefinidamente esperando la respuesta.
             
             print('Fragmento recien enviado: ',index+1)
             

@@ -1,5 +1,6 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0.
+# Modificaciones realizadas por Adrián Barquilla Rodríguez, 2025
 
 import time
 import json

@@ -3,6 +3,7 @@
 # Licensed under the MIT License. See License.txt in the project root for
 # license information.
 # --------------------------------------------------------------------------
+# Modificaciones realizadas por Adrián Barquilla Rodríguez, 2025
 
 import os
 import time

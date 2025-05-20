@@ -17,8 +17,8 @@ MAX_PAYLOAD_B64 = 127 * 1024 #127K para que sea el mismo tamaño que con Greengr
 duracion_prueba = 60 #duración en segundos que ha de durar la ráfaga de mensajes
 
 # The connection string for a device should never be stored in code. For the sake of simplicity we're using an environment variable here.
-#cadena_conexion_principal = "HostName=miprimer-iothub.azure-devices.net;DeviceId=MiDispositivoCliente;SharedAccessKey=i0Ixw6JJyEyvN+glRkew6MGerhsJmynYTjPEuSmTR08="
-#conn_str = os.getenv("IOTHUB_DEVICE_CONNECTION_STRING")
+# cadena_conexion_principal = "HostName=miprimer-iothub.azure-devices.net;DeviceId=MiDispositivoCliente;SharedAccessKey=i0Ixw6JJyEyvN+glRkew6MGerhsJmynYTjPEuSmTR08="
+# conn_str = os.getenv("IOTHUB_DEVICE_CONNECTION_STRING")
 conn_str = "HostName=miprimer-iothub.azure-devices.net;DeviceId=MiDispositivoCliente;SharedAccessKey=i0Ixw6JJyEyvN+glRkew6MGerhsJmynYTjPEuSmTR08=;GatewayHostName=adrian-VirtualBox"
 
 # The client object is used to interact with your Azure IoT hub.

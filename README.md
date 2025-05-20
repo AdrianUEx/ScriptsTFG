@@ -7,8 +7,8 @@ Scripts usados a lo largo del TFG
 * **consumoShelly_500ms_v2.js** : un prototipo de mejora fallido del script anterior. La consola del Shelly no es capaz de mostrar correctamente valores complejos a la velocidad suficiente, por lo que no se pueden recuperar los valores en formato CSV listos para ser usados.
 
 ## Scripts AWS
-* **basic_discovery.py** : el script básico que viene con awsiotsdk. Cuenta con un fallo del *print()* al final donde pide valores del puback, pero no existe. Dicho fallo, debido a la falta de mantenimiento, está corregido. Manda 10 mensajes string genéricos y termina.
-* **basic_discovery_v2.py** : cuenta con muchísimos comentarios nuevos. También cuenta con print() adicionales para organizar mejor la info por consola y mostrar otra info de utilidad para hacer debug. También cuenta con un método 'convertir_imagen_b64()' que no hace nada. 
+* **basic_discovery.py** : el script básico incluido en awsiotsdk. Cuenta con un fallo del *print()* al final donde pide valores del puback, pero no existe. Dicho fallo, debido a la falta de mantenimiento, está corregido. Manda 10 mensajes string genéricos y termina.
+* **basic_discovery_v2.py** : cuenta con muchísimos comentarios nuevos. También cuenta con *print()* adicionales para organizar mejor la info por consola y mostrar otra info de utilidad para hacer debug. También cuenta con un método 'convertir_imagen_b64()' que no hace nada. 
 Por último, este script lanza 10 veces un mensaje 'test' codificado en base64 con éxito para probar la codificación y el envío.
 * **basic_discovery_v3.py** : esta mejora de la v2 incluye el nuevo método 'fragmentar_imagen_b64()' y el bucle *for* para lanzar los fragmentos. Se han optimizado los *print()*, y cuenta con algunas variables globales e imports nuevos. Manda los fragmentos con éxito una vez y cuenta el tiempo tardado.
 * **basic_discovery_v4.py** : esta mejora de la v3 es capaz de mandar los mensajes durante un periodo de tiempo de 60 seg. Manda cada imagen con un segundo de intervalo, y cuenta con pequeños reajustes para los mensajes por consola.

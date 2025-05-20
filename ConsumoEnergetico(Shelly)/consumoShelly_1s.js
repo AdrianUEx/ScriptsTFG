@@ -1,3 +1,5 @@
+// Código creado por Adrián Barquilla Rodríguez, 2025
+
 // Ejecuta cada 60 segundos (60000 ms)
 // Ejecuta cada 1 segundos (1000 ms)
 /*Timer.set(1000, true, function () {

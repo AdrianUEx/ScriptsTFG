@@ -1,3 +1,5 @@
+// Código creado por Adrián Barquilla Rodríguez, 2025
+
 /*
   Intervalo muestreo | Muestras por seg | 'total_length' (para 1 min)
   ------------------ | ---------------- | --------------------------- 

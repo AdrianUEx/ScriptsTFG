@@ -18,7 +18,6 @@ ruta_carpeta_imgs = "/home/raspberry-adrian/imagenesTFG"
 ruta_img = "/home/raspberry-adrian/imagenesTFG/foto_alumnos.jpg"
 MAX_PAYLOAD_B64 = 63 * 1024 # Tamaño del paquete
 duracion_prueba = 60 # Duración en segundos que ha de durar la ráfaga de mensajes
-print(type(mqtt.QoS.AT_LEAST_ONCE))
 
 allowed_actions = ['both', 'publish', 'subscribe']
 
@@ -141,8 +140,6 @@ if cmdData.input_mode == 'both' or cmdData.input_mode == 'publish':
             #               mqtt_connection.publish(topic, payload, qos=1, retain=false)
             pub_future, _ = mqtt_connection.publish(topic=cmdData.input_topic, payload=messageJson, qos=mqtt.QoS.AT_LEAST_ONCE) 
             publish_completion_data = pub_future.result()
-            # del pub_future
-            # message.clear() 
 
             #print('Fragmento recien enviado: ', index + 1)
         loop_count += 1
